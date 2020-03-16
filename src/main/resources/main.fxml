@@ -1,0 +1,46 @@
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<VBox spacing="10" style="-fx-padding: 10"
+    xmlns:fx="javafx" fx:controller="com.hyd.wkhtmltopdf.MainController">
+    <HBox spacing="10" alignment="BASELINE_LEFT">
+        <Label text="wkhtmltopdf 可执行文件:"/>
+        <TextField HBox.hgrow="ALWAYS" fx:id="txtExecutablePath"/>
+        <Button text="..." onAction="#selectExecutablePath"/>
+    </HBox>
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <Tab text="转换来源页面">
+            <VBox spacing="10" style="-fx-padding: 10 0 0 0">
+                <HBox alignment="BASELINE_LEFT">
+                    <Label text="在下面输入网页地址，或 "/>
+                    <Hyperlink text="打开文件..." onAction="#selectHtmlFile"/>
+                </HBox>
+                <TextArea VBox.vgrow="ALWAYS" fx:id="txtHtmlLocation" wrapText="true"/>
+                <Label text="输出文件名："/>
+                <TextField fx:id="txtOutputPath"/>
+            </VBox>
+        </Tab>
+        <Tab text="登录认证"/>
+        <Tab text="网页内容选项"/>
+        <Tab text="页面尺寸"/>
+        <Tab text="页头页脚"/>
+        <Tab text="PDF内容选项"/>
+    </TabPane>
+    <Separator/>
+    <HBox alignment="BASELINE_LEFT">
+        <Button text="开始转换" style="-fx-font-weight: bold;-fx-label-padding: 4 8"
+            fx:id="btnStartConvert" onAction="#startConvert"/>
+        <Pane prefWidth="10"/>
+        <Label fx:id="lblResultText"/>
+        <Hyperlink fx:id="lnkResultAction" onAction="#execResultLink"/>
+    </HBox>
+    <TextArea prefHeight="80" fx:id="txtLog" editable="false" promptText="日志输出"/>
+</VBox>
