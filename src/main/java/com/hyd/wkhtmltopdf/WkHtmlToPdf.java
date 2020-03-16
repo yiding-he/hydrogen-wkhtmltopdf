@@ -2,6 +2,10 @@ package com.hyd.wkhtmltopdf;
 
 import com.hyd.fx.dialog.AlertDialog;
 import com.hyd.fx.utils.Str;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.function.Consumer;
 import javafx.beans.property.SimpleStringProperty;
@@ -97,10 +101,21 @@ public class WkHtmlToPdf {
 
     private void startProcess() {
         try {
-            final ProcessBuilder processBuilder = new ProcessBuilder(
-                this.getExecutablePath(), this.getHtmlPath(), this.getOutputPath()
-            );
+            List<String> command = new ArrayList<>();
+            command.add(this.getExecutablePath());
 
+            this.options.forEach((key, value) -> {
+                command.add("--" + key);
+                if (Str.isNotBlank(value)) {
+                    command.add(value);
+                }
+            });
+
+            command.add(this.getHtmlPath());
+            command.add(this.getOutputPath());
+            logListener.accept(String.join(" ", command));
+
+            final ProcessBuilder processBuilder = new ProcessBuilder(command);
             final Process process = processBuilder.start();
 
             readProcessOutput(process);
@@ -126,5 +141,13 @@ public class WkHtmlToPdf {
         while (errScanner.hasNextLine()) {
             logListener.accept(errScanner.nextLine());
         }
+    }
+
+    //////////////////////////////////////////////////////////////
+
+    private Map<String, String> options = new HashMap<>();
+
+    public void setOption(String key, String value) {
+        this.options.put(key, value);
     }
 }

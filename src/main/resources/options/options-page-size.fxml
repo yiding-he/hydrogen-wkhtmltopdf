@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="javafx" spacing="10" style="-fx-padding: 10">
+
+    <fx:define>
+        <java.lang.Integer fx:id="numTextWidth" fx:value="60"/>
+        <ToggleGroup fx:id="tgPageSizeType"/>
+    </fx:define>
+
+    <HBox alignment="BASELINE_LEFT" spacing="10">
+        <RadioButton text="标准尺寸" toggleGroup="$tgPageSizeType" selected="true">
+            <properties pageSizeType="predefined"/>
+        </RadioButton>
+        <HBox alignment="BASELINE_LEFT" fx:id="hbPageSizeTypePredefined">
+            <ComboBox prefWidth="150" fx:id="cmbPageSize" value="A4">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="A2"/>
+                        <String fx:value="A3"/>
+                        <String fx:value="A4"/>
+                        <String fx:value="A5"/>
+                        <String fx:value="A6"/>
+                        <String fx:value="B3"/>
+                        <String fx:value="B4"/>
+                        <String fx:value="B5"/>
+                        <String fx:value="B6"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </HBox>
+    </HBox>
+    <HBox alignment="BASELINE_LEFT" spacing="10">
+        <RadioButton text="自定尺寸" toggleGroup="$tgPageSizeType">
+            <properties pageSizeType="customized"/>
+        </RadioButton>
+        <HBox alignment="BASELINE_LEFT" spacing="10" fx:id="hbPageSizeTypeCustomized">
+            <HBox alignment="BASELINE_LEFT" spacing="5">
+                <Label text="宽度:"/>
+                <TextField prefWidth="$numTextWidth" fx:id="txtCustomPaperWidth"/>
+            </HBox>
+            <HBox alignment="BASELINE_LEFT" spacing="5">
+                <Label text="高度:"/>
+                <TextField prefWidth="$numTextWidth" fx:id="txtCustomPaperHeight"/>
+            </HBox>
+            <Label text="页边距："/>
+            <HBox alignment="BASELINE_LEFT" spacing="5">
+                <Label text="上"/>
+                <TextField prefWidth="$numTextWidth"/>
+            </HBox>
+            <HBox alignment="BASELINE_LEFT" spacing="5">
+                <Label text="下"/>
+                <TextField prefWidth="$numTextWidth"/>
+            </HBox>
+            <HBox alignment="BASELINE_LEFT" spacing="5">
+                <Label text="左"/>
+                <TextField prefWidth="$numTextWidth"/>
+            </HBox>
+            <HBox alignment="BASELINE_LEFT" spacing="5">
+                <Label text="右"/>
+                <TextField prefWidth="$numTextWidth"/>
+            </HBox>
+        </HBox>
+    </HBox>
+</VBox>
+

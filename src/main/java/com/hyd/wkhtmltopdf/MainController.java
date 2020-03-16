@@ -8,36 +8,10 @@ import com.hyd.wkhtmltopdf.WkHtmlToPdf.Status;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
 
-public class MainController {
-
-    @FXML
-    private TextField txtExecutablePath;
-
-    @FXML
-    private TextArea txtHtmlLocation;
-
-    @FXML
-    private TextField txtOutputPath;
-
-    @FXML
-    private TextArea txtLog;
-
-    @FXML
-    private Button btnStartConvert;
-
-    @FXML
-    private Label lblResultText;
-
-    @FXML
-    private Hyperlink lnkResultAction;
+public class MainController extends MainView {
 
     public void initialize() {
         final WkHtmlToPdf wkHtmlToPdf = WkHtmlToPdf.getInstance();
@@ -47,11 +21,60 @@ public class MainController {
 
         this.txtExecutablePath.setText(AppPreferences.get().get(PrefKeys.ExecutablePath.name(), ""));
 
+        this.tgPageSizeType.selectedToggleProperty().addListener(
+            (_ob, _old, value) -> this.onPageSizeTypeChanged(value)
+        );
         this.txtHtmlLocation.textProperty().addListener(
             (_ob, _old, value) -> this.txtOutputPath.setText(generateOutputPath(value))
         );
+        this.cmbPageSize.valueProperty().addListener(
+            (_ob, _old, value) -> this.onPageSizeSelectionChanged(value)
+        );
 
         initWkHtmlToPdf();
+    }
+
+    private void onPageSizeSelectionChanged(String size) {
+        switch (size) {
+            case "A2":
+                setCustomPageSize(420, 594);
+                break;
+            case "A3":
+                setCustomPageSize(297, 420);
+                break;
+            case "A4":
+                setCustomPageSize(210, 297);
+                break;
+            case "A5":
+                setCustomPageSize(148, 210);
+                break;
+            case "A6":
+                setCustomPageSize(105, 148);
+                break;
+            case "B3":
+                setCustomPageSize(353, 500);
+                break;
+            case "B4":
+                setCustomPageSize(250, 353);
+                break;
+            case "B5":
+                setCustomPageSize(176, 250);
+                break;
+            case "B6":
+                setCustomPageSize(125, 176);
+                break;
+        }
+    }
+
+    private void setCustomPageSize(int width, int height) {
+        txtCustomPaperWidth.setText(width + "mm");
+        txtCustomPaperHeight.setText(height + "mm");
+    }
+
+    private void onPageSizeTypeChanged(Toggle toggle) {
+        PageSizeType pageSizeType = PageSizeType.valueOf(toggle);
+        hbPageSizeTypeCustomized.setDisable(pageSizeType == PageSizeType.predefined);
+        hbPageSizeTypePredefined.setDisable(pageSizeType == PageSizeType.customized);
     }
 
     private void initWkHtmlToPdf() {
@@ -141,10 +164,26 @@ public class MainController {
     }
 
     public void startConvert() {
+        collectOptions();
         WkHtmlToPdf.getInstance().start();
     }
 
     public void execResultLink() {
         WkhtmltopdfMain.hostServices.showDocument(WkHtmlToPdf.getInstance().getOutputPath());
+    }
+
+    //////////////////////////////////////////////////////////////
+
+    private void collectOptions() {
+        final WkHtmlToPdf wkHtmlToPdf = WkHtmlToPdf.getInstance();
+        collectPageSizeOptions(wkHtmlToPdf);
+    }
+
+    private void collectPageSizeOptions(WkHtmlToPdf wkHtmlToPdf) {
+        final PageSizeType pageSizeType = PageSizeType.valueOf(tgPageSizeType.getSelectedToggle());
+
+        if (pageSizeType == PageSizeType.predefined) {
+            wkHtmlToPdf.setOption("page-size", cmbPageSize.getValue());
+        }
     }
 }
