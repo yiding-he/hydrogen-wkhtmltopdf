@@ -64,7 +64,7 @@ public class MainController {
                 } else {
                     txtLog.appendText("\n" + log);
                 }
-                txtLog.setScrollTop(Double.MAX_VALUE);
+                txtLog.appendText("");
             });
         });
 
@@ -81,7 +81,7 @@ public class MainController {
                 } else if (status == Status.Succes) {
                     this.btnStartConvert.setDisable(false);
                     this.setText(this.lblResultText, "文件生成完毕。");
-                    this.setText(this.lnkResultAction, "打开文件");
+                    this.setText(this.lnkResultAction, "打开");
                 } else if (status == Status.Fail) {
                     this.btnStartConvert.setDisable(false);
                 }
@@ -89,6 +89,7 @@ public class MainController {
         });
     }
 
+    // 为 label 或 Hyperlink 设置文本内容。如果内容为空则隐藏控件
     private void setText(Labeled labeled, String text) {
         if (text == null) {
             labeled.setVisible(false);
@@ -98,6 +99,9 @@ public class MainController {
         }
     }
 
+    // 根据输入的 html 路径生成输出 pdf 文件路径
+    // 如果输入的是本地文件则默认置输出目录为源文件所在目录；
+    // 如果输入的是远程地址则默认置输出目录为当前目录。
     private String generateOutputPath(String htmlPath) {
         String outputDir = "";
 
@@ -114,6 +118,7 @@ public class MainController {
         return outputDir + File.separator + outputFilename;
     }
 
+    // 选择 wkhtmltopdf 可执行文件路径
     public void selectExecutablePath() {
         final File file = FileDialog.showOpenFile(null, "选择 wkhtmltopdf.exe", "*.exe", "wkhtmltopdf.exe");
         if (file != null) {
@@ -123,6 +128,7 @@ public class MainController {
         }
     }
 
+    // 选择源文件本地路径
     public void selectHtmlFile() {
         try {
             final File file = FileDialog.showOpenFile(null, "选择 HTML 文件", "*.html", "HTML 文件");

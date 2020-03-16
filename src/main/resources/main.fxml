@@ -21,7 +21,7 @@
             <VBox spacing="10" style="-fx-padding: 10 0 0 0">
                 <HBox alignment="BASELINE_LEFT">
                     <Label text="在下面输入网页地址，或 "/>
-                    <Hyperlink text="打开文件..." onAction="#selectHtmlFile"/>
+                    <Hyperlink text="打开本地文件..." onAction="#selectHtmlFile"/>
                 </HBox>
                 <TextArea VBox.vgrow="ALWAYS" fx:id="txtHtmlLocation" wrapText="true"/>
                 <Label text="输出文件名："/>
