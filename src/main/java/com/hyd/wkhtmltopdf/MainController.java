@@ -132,6 +132,7 @@ public class MainController extends MainView {
     private void collectOptions() {
         final WkHtmlToPdf wkHtmlToPdf = WkHtmlToPdf.getInstance();
         pageSizeController.collectOptions(wkHtmlToPdf);
+        webContentController.collectOptions(wkHtmlToPdf);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.hyd.wkhtmltopdf;
 
 import com.hyd.wkhtmltopdf.options.PageSizeController;
+import com.hyd.wkhtmltopdf.options.WebContentController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -33,4 +34,7 @@ public abstract class MainView {
 
     @FXML
     protected PageSizeController pageSizeController;
+
+    @FXML
+    protected WebContentController webContentController;
 }

@@ -164,4 +164,8 @@ public class WkHtmlToPdf {
     public static void setOption(WkHtmlToPdf wkHtmlToPdf, String key) {
         wkHtmlToPdf.setOption(key);
     }
+
+    public static void setOption(WkHtmlToPdf wkHtmlToPdf, String key, int value) {
+        wkHtmlToPdf.setOption(key, String.valueOf(value));
+    }
 }
