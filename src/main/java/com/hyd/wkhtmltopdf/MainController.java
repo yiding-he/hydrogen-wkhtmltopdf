@@ -5,6 +5,7 @@ import static com.hyd.fx.dialog.FileDialog.showOpenFile;
 
 import com.hyd.fx.app.AppPreferences;
 import com.hyd.fx.dialog.AlertDialog;
+import com.hyd.fx.system.ClipboardHelper;
 import com.hyd.wkhtmltopdf.WkHtmlToPdf.Status;
 import java.io.File;
 import java.net.MalformedURLException;
@@ -123,6 +124,13 @@ public class MainController extends MainView {
         WkHtmlToPdf.getInstance().start();
     }
 
+    public void copyCommand() {
+        collectOptions();
+        String commandText = String.join(" ", WkHtmlToPdf.getInstance().buildCommand());
+        ClipboardHelper.putString(commandText);
+        AlertDialog.info("复制命令", "命令已复制到剪切板。");
+    }
+
     public void execResultLink() {
         WkhtmltopdfMain.hostServices.showDocument(WkHtmlToPdf.getInstance().getOutputPath());
     }
@@ -134,5 +142,4 @@ public class MainController extends MainView {
         pageSizeController.collectOptions(wkHtmlToPdf);
         webContentController.collectOptions(wkHtmlToPdf);
     }
-
 }

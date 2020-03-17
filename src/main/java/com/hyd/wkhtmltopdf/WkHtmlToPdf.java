@@ -101,18 +101,7 @@ public class WkHtmlToPdf {
 
     private void startProcess() {
         try {
-            List<String> command = new ArrayList<>();
-            command.add(this.getExecutablePath());
-
-            this.options.forEach((key, value) -> {
-                command.add("--" + key);
-                if (Str.isNotBlank(value)) {
-                    command.add(value);
-                }
-            });
-
-            command.add(this.getHtmlPath());
-            command.add(this.getOutputPath());
+            List<String> command = buildCommand();
             logListener.accept(String.join(" ", command));
 
             final ProcessBuilder processBuilder = new ProcessBuilder(command);
@@ -129,6 +118,22 @@ public class WkHtmlToPdf {
             logListener.accept(e.toString());
             statusListener.accept(Status.Fail);
         }
+    }
+
+    public List<String> buildCommand() {
+        List<String> command = new ArrayList<>();
+        command.add(this.getExecutablePath());
+
+        this.options.forEach((key, value) -> {
+            command.add("--" + key);
+            if (Str.isNotBlank(value)) {
+                command.add(value);
+            }
+        });
+
+        command.add(this.getHtmlPath());
+        command.add(this.getOutputPath());
+        return command;
     }
 
     private void readProcessOutput(Process process) {
