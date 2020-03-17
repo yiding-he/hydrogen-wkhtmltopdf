@@ -170,7 +170,7 @@ public class WkHtmlToPdf {
         wkHtmlToPdf.setOption(key);
     }
 
-    public static void setOption(WkHtmlToPdf wkHtmlToPdf, String key, int value) {
+    public static void setOption(WkHtmlToPdf wkHtmlToPdf, String key, Number value) {
         wkHtmlToPdf.setOption(key, String.valueOf(value));
     }
 }

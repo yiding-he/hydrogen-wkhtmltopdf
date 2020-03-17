@@ -1,3 +1,4 @@
+<?import com.hyd.fx.components.DoubleSpinner?>
 <?import com.hyd.fx.components.IntegerSpinner?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -43,6 +44,10 @@
         <HBox spacing="10" alignment="BASELINE_LEFT">
             <Label text="最小字体大小:"/>
             <IntegerSpinner prefWidth="80" editable="true" fx:id="spnMinFontSize" min="5" max="100"/>
+        </HBox>
+        <HBox spacing="10" alignment="BASELINE_LEFT">
+            <Label text="页面缩放（%）:"/>
+            <DoubleSpinner prefWidth="80" editable="true" fx:id="spnZoomPercent" min="1" max="1000"/>
         </HBox>
     </VBox>
 </HBox>

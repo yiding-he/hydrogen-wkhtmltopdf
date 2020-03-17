@@ -3,6 +3,7 @@ package com.hyd.wkhtmltopdf.options;
 import static com.hyd.wkhtmltopdf.WkHtmlToPdf.setOption;
 import static com.hyd.wkhtmltopdf.WkHtmlToPdf.setOptionIfNotBlank;
 
+import com.hyd.fx.components.DoubleSpinner;
 import com.hyd.fx.components.IntegerSpinner;
 import com.hyd.wkhtmltopdf.WkHtmlToPdf;
 import javafx.fxml.FXML;
@@ -39,6 +40,9 @@ public class WebContentController {
     private IntegerSpinner spnMinFontSize;
 
     @FXML
+    private DoubleSpinner spnZoomPercent;
+
+    @FXML
     private TextField txtWebPageEncoding;
 
     public void initialize() {
@@ -49,6 +53,7 @@ public class WebContentController {
         this.chkEnableJavaScript.setSelected(true);
         this.spnScriptDelayMillis.setValue(200);
         this.spnMinFontSize.setValue(8);
+        this.spnZoomPercent.setValue(100.0);
     }
 
     public void collectOptions(WkHtmlToPdf wkHtmlToPdf) {
@@ -75,6 +80,9 @@ public class WebContentController {
         }
         if (this.spnScriptDelayMillis.getValue() != 200) {
             setOption(wkHtmlToPdf, "javascript-delay", this.spnScriptDelayMillis.getValue());
+        }
+        if (this.spnZoomPercent.getValue() != 100.0) {
+            setOption(wkHtmlToPdf, "zoom", this.spnZoomPercent.getValue() / 100.0);
         }
         setOptionIfNotBlank(wkHtmlToPdf, "encoding", txtWebPageEncoding.getText());
         setOption(wkHtmlToPdf, "minimum-font-size", spnMinFontSize.getValue());
