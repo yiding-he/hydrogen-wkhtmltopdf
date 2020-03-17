@@ -150,4 +150,18 @@ public class WkHtmlToPdf {
     public void setOption(String key, String value) {
         this.options.put(key, value);
     }
+
+    public void setOption(String key) {
+        this.setOption(key, "");
+    }
+
+    public static void setOptionIfNotBlank(WkHtmlToPdf wkHtmlToPdf, String key, String value) {
+        if (Str.isNotBlank(value)) {
+            wkHtmlToPdf.setOption(key, value);
+        }
+    }
+
+    public static void setOption(WkHtmlToPdf wkHtmlToPdf, String key) {
+        wkHtmlToPdf.setOption(key);
+    }
 }

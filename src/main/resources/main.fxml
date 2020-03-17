@@ -40,7 +40,7 @@
         <Tab text="登录认证"/>
         <Tab text="网页内容选项"/>
         <Tab text="页面尺寸">
-            <fx:include source="options/options-page-size.fxml"/>
+            <fx:include source="options/options-page-size.fxml" fx:id="pageSize"/>
         </Tab>
         <Tab text="页头页脚"/>
         <Tab text="PDF内容选项"/>
@@ -54,5 +54,5 @@
         <Label fx:id="lblResultText"/>
         <Hyperlink fx:id="lnkResultAction" onAction="#execResultLink"/>
     </HBox>
-    <TextArea prefHeight="80" fx:id="txtLog" editable="false" promptText="日志输出"/>
+    <TextArea prefHeight="120" fx:id="txtLog" editable="false" promptText="日志输出"/>
 </VBox>
