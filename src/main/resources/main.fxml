@@ -46,7 +46,9 @@
             <fx:include source="options/options-page-size.fxml" fx:id="pageSize"/>
         </Tab>
         <Tab text="页头页脚"/>
-        <Tab text="PDF内容选项"/>
+        <Tab text="PDF内容选项">
+            <fx:include source="options/options-pdf-content.fxml" fx:id="pdfContent"/>
+        </Tab>
     </TabPane>
 
     <HBox alignment="BASELINE_LEFT">

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <HBox spacing="10" style="-fx-padding: 10"
     xmlns:fx="javafx" fx:controller="com.hyd.wkhtmltopdf.options.WebContentController">
-    <VBox spacing="10" HBox.hgrow="ALWAYS">
+    <VBox spacing="10" HBox.hgrow="ALWAYS" style="-fx-padding: 5">
         <HBox spacing="10" alignment="BASELINE_LEFT">
             <CheckBox fx:id="chkEnableBackground" text="启用背景图片"/>
         </HBox>
