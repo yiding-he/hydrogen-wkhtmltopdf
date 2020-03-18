@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.function.Consumer;
 import javafx.beans.property.SimpleStringProperty;
@@ -163,6 +164,24 @@ public class WkHtmlToPdf {
     public static void setOptionIfNotBlank(WkHtmlToPdf wkHtmlToPdf, String key, String value) {
         if (Str.isNotBlank(value)) {
             wkHtmlToPdf.setOption(key, value);
+        }
+    }
+
+    public static void setOptionIfNotEqualTo(WkHtmlToPdf wkHtmlToPdf, String key, String value, String def) {
+        if (!Objects.equals(value, def)) {
+            wkHtmlToPdf.setOption(key, value);
+        }
+    }
+
+    public static void setOptionIfNotEqualTo(WkHtmlToPdf wkHtmlToPdf, String key, int value, int def) {
+        if (value != def) {
+            wkHtmlToPdf.setOption(key, String.valueOf(value));
+        }
+    }
+
+    public static void setOptionIfNotEqualTo(WkHtmlToPdf wkHtmlToPdf, String key, double value, double def) {
+        if (value != def) {
+            wkHtmlToPdf.setOption(key, String.valueOf(value));
         }
     }
 
