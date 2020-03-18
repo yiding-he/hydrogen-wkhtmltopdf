@@ -30,6 +30,9 @@
         <HBox spacing="10" alignment="BASELINE_LEFT">
             <CheckBox fx:id="chkEnableJavaScript" text="渲染页面时启用 JavaScript"/>
         </HBox>
+        <HBox spacing="10" alignment="BASELINE_LEFT">
+            <CheckBox fx:id="chkUsePrintMediaType" text="渲染媒体类型（media-type）为 print"/>
+        </HBox>
     </VBox>
     <Separator orientation="VERTICAL"/>
     <VBox spacing="10" HBox.hgrow="ALWAYS">

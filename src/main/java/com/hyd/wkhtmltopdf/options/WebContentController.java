@@ -34,6 +34,9 @@ public class WebContentController {
     private CheckBox chkUseXserver;
 
     @FXML
+    private CheckBox chkUsePrintMediaType;
+
+    @FXML
     private IntegerSpinner spnScriptDelayMillis;
 
     @FXML
@@ -77,6 +80,9 @@ public class WebContentController {
         }
         if (!this.chkEnableJavaScript.isSelected()) {
             setOption(wkHtmlToPdf, "disable-javascript");
+        }
+        if (this.chkUsePrintMediaType.isSelected()) {
+            setOption(wkHtmlToPdf, "print-media-type");
         }
         if (this.spnScriptDelayMillis.getValue() != 200) {
             setOption(wkHtmlToPdf, "javascript-delay", this.spnScriptDelayMillis.getValue());
