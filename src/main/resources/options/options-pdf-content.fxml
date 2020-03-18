@@ -26,5 +26,8 @@
     <HBox spacing="10" alignment="BASELINE_LEFT">
         <CheckBox fx:id="chkLowQuality" text="低文档质量"/>
     </HBox>
+    <HBox spacing="10" alignment="BASELINE_LEFT">
+        <CheckBox fx:id="chkGrayscale" text="灰度"/>
+    </HBox>
 
 </VBox>

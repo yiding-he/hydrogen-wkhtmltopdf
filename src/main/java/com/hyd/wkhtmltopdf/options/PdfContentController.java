@@ -20,6 +20,8 @@ public class PdfContentController {
 
     public CheckBox chkLowQuality;
 
+    public CheckBox chkGrayscale;
+
     public void initialize() {
         this.spnDpi.setValue(96);
         this.spnImageDpi.setValue(600);
@@ -33,6 +35,10 @@ public class PdfContentController {
 
         if (chkLowQuality.isSelected()) {
             setOption(wkHtmlToPdf, "lowquality");
+        }
+
+        if (chkGrayscale.isSelected()) {
+            setOption(wkHtmlToPdf, "grayscale");
         }
     }
 }
