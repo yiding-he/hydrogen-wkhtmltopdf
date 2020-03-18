@@ -72,5 +72,17 @@
             </HBox>
         </HBox>
     </HBox>
+    <HBox prefHeight="1"/>
+    <HBox alignment="BASELINE_LEFT" spacing="10">
+        <Label text="页面方向:"/>
+        <ComboBox fx:id="cmbPageOrientation" prefWidth="150">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="垂直"/>
+                    <String fx:value="水平"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </HBox>
 </VBox>
 

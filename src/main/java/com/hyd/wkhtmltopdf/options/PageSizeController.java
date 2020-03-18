@@ -40,6 +40,9 @@ public class PageSizeController {
     protected ComboBox<String> cmbPageSize;
 
     @FXML
+    protected ComboBox<String> cmbPageOrientation;
+
+    @FXML
     protected TextField txtCustomPaperWidth;
 
     @FXML
@@ -74,6 +77,7 @@ public class PageSizeController {
 
         this.tgPageSizeType.selectToggle(this.tgPageSizeTypePredefined);
         this.cmbPageSize.setValue("A4");
+        this.cmbPageOrientation.getSelectionModel().select(0);
     }
 
     private void onPageSizeSelectionChanged(String size) {
@@ -106,6 +110,10 @@ public class PageSizeController {
             setOptionIfNotBlank(wkHtmlToPdf, "margin-bottom", txtCustomMarginBottom.getText());
             setOptionIfNotBlank(wkHtmlToPdf, "margin-left", txtCustomMarginLeft.getText());
             setOptionIfNotBlank(wkHtmlToPdf, "margin-right", txtCustomMarginRight.getText());
+        }
+
+        if (this.cmbPageOrientation.getSelectionModel().getSelectedIndex() != 0) {
+            setOptionIfNotBlank(wkHtmlToPdf, "orientation", "Landscape");
         }
     }
 }
