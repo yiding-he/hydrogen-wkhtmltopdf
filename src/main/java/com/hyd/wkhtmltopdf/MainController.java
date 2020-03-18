@@ -2,8 +2,8 @@ package com.hyd.wkhtmltopdf;
 
 import static com.hyd.fx.app.AppThread.runUIThread;
 import static com.hyd.fx.dialog.FileDialog.showOpenFile;
+import static com.hyd.wkhtmltopdf.WkhtmltopdfMain.PREFERENCES;
 
-import com.hyd.fx.app.AppPreferences;
 import com.hyd.fx.dialog.AlertDialog;
 import com.hyd.fx.system.ClipboardHelper;
 import com.hyd.wkhtmltopdf.WkHtmlToPdf.Status;
@@ -21,7 +21,7 @@ public class MainController extends MainView {
         this.txtHtmlLocation.textProperty().bindBidirectional(wkHtmlToPdf.htmlPathProperty());
         this.txtOutputPath.textProperty().bindBidirectional(wkHtmlToPdf.outputPathProperty());
 
-        this.txtExecutablePath.setText(AppPreferences.get().get(PrefKeys.ExecutablePath.name(), ""));
+        this.txtExecutablePath.setText(PREFERENCES.get(PrefKeys.ExecutablePath.name(), ""));
 
         this.txtHtmlLocation.textProperty().addListener(
             (_ob, _old, value) -> this.txtOutputPath.setText(generateOutputPath(value))
@@ -103,7 +103,7 @@ public class MainController extends MainView {
         if (file != null) {
             final String executablePath = file.getAbsolutePath();
             txtExecutablePath.setText(executablePath);
-            AppPreferences.get().put(PrefKeys.ExecutablePath.name(), executablePath);
+            PREFERENCES.put(PrefKeys.ExecutablePath.name(), executablePath);
         }
     }
 
