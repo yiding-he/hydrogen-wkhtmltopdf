@@ -15,6 +15,7 @@ public class HeaderFooterController {
     }
 
     public void collectOptions(WkHtmlToPdf wkHtmlToPdf) {
-
+        headerController.collectOptions(wkHtmlToPdf, "header");
+        footerController.collectOptions(wkHtmlToPdf, "footer");
     }
 }

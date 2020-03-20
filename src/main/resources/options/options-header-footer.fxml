@@ -1,3 +1,4 @@
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.VBox?>
@@ -5,6 +6,9 @@
     xmlns:fx="javafx" fx:controller="com.hyd.wkhtmltopdf.options.HeaderFooterController">
 
     <VBox spacing="10">
+        <Label style="-fx-text-fill: #3366AA" wrapText="true"
+            text="文本内容中可以用 [page] 表示当前页号，[topage] 表示总页数。"/>
+
         <TitledPane VBox.vgrow="ALWAYS" collapsible="false" text="页头">
             <fx:include source="fragments/header-footer.fxml" fx:id="header"/>
         </TitledPane>

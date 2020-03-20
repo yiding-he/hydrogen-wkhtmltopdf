@@ -11,14 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <HBox spacing="10" fx:id="root"
     xmlns:fx="javafx" fx:controller="com.hyd.wkhtmltopdf.options.fragments.HeaderFooterFragmentController">
-    <TabPane HBox.hgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
-        <Tab text="HTML">
-            <BorderPane style="-fx-padding: 10 0 0 0">
-                <center>
-                    <TextArea prefHeight="100" fx:id="txtContentHtml"/>
-                </center>
-            </BorderPane>
-        </Tab>
+    <TabPane HBox.hgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE" fx:id="tpContent">
         <Tab text="文本">
             <VBox spacing="10" style="-fx-padding: 10 0 0 0">
                 <HBox alignment="BASELINE_LEFT" spacing="10">
@@ -35,6 +28,13 @@
                 </HBox>
             </VBox>
         </Tab>
+        <Tab text="HTML">
+            <BorderPane style="-fx-padding: 10 0 0 0">
+                <center>
+                    <TextArea prefHeight="100" fx:id="txtContentHtml"/>
+                </center>
+            </BorderPane>
+        </Tab>
     </TabPane>
     <Separator orientation="VERTICAL"/>
     <VBox spacing="10" minWidth="200">
@@ -42,7 +42,7 @@
             <CheckBox text="[[TYPE]]分隔线" fx:id="chkSeparator"/>
         </HBox>
         <HBox alignment="BASELINE_LEFT" spacing="5">
-            <Label text="[[TYPE]]与内容间隔:"/>
+            <Label text="[[TYPE]]与内容间隔(mm):"/>
             <IntegerSpinner prefWidth="80" editable="true" min="0" max="1000" fx:id="spnSpacing"/>
         </HBox>
         <HBox alignment="BASELINE_LEFT" spacing="5">

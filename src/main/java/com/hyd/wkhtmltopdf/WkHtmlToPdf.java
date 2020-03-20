@@ -161,6 +161,12 @@ public class WkHtmlToPdf {
         this.setOption(key, "");
     }
 
+    public static void setOptionIf(WkHtmlToPdf wkHtmlToPdf, String key, boolean predict) {
+        if (predict) {
+            wkHtmlToPdf.setOption(key);
+        }
+    }
+
     public static void setOptionIfNotBlank(WkHtmlToPdf wkHtmlToPdf, String key, String value) {
         if (Str.isNotBlank(value)) {
             wkHtmlToPdf.setOption(key, value);
