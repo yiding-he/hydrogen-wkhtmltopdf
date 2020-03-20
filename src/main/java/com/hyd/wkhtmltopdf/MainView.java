@@ -1,5 +1,6 @@
 package com.hyd.wkhtmltopdf;
 
+import com.hyd.wkhtmltopdf.options.HeaderFooterController;
 import com.hyd.wkhtmltopdf.options.PageSizeController;
 import com.hyd.wkhtmltopdf.options.PdfContentController;
 import com.hyd.wkhtmltopdf.options.WebContentController;
@@ -41,4 +42,7 @@ public abstract class MainView {
 
     @FXML
     protected PdfContentController pdfContentController;
+
+    @FXML
+    protected HeaderFooterController headerFooterController;
 }

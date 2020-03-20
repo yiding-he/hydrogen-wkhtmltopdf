@@ -1,0 +1,57 @@
+<?import com.hyd.fx.components.IntegerSpinner?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<HBox spacing="10" fx:id="root"
+    xmlns:fx="javafx" fx:controller="com.hyd.wkhtmltopdf.options.fragments.HeaderFooterFragmentController">
+    <TabPane HBox.hgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+        <Tab text="HTML">
+            <BorderPane style="-fx-padding: 10 0 0 0">
+                <center>
+                    <TextArea prefHeight="100" fx:id="txtContentHtml"/>
+                </center>
+            </BorderPane>
+        </Tab>
+        <Tab text="文本">
+            <VBox spacing="10" style="-fx-padding: 10 0 0 0">
+                <HBox alignment="BASELINE_LEFT" spacing="10">
+                    <Label text="左："/>
+                    <TextField HBox.hgrow="ALWAYS" fx:id="txtContentLeft"/>
+                </HBox>
+                <HBox alignment="BASELINE_LEFT" spacing="10">
+                    <Label text="中："/>
+                    <TextField HBox.hgrow="ALWAYS" fx:id="txtContentCenter"/>
+                </HBox>
+                <HBox alignment="BASELINE_LEFT" spacing="10">
+                    <Label text="右："/>
+                    <TextField HBox.hgrow="ALWAYS" fx:id="txtContentRight"/>
+                </HBox>
+            </VBox>
+        </Tab>
+    </TabPane>
+    <Separator orientation="VERTICAL"/>
+    <VBox spacing="10" minWidth="200">
+        <HBox alignment="BASELINE_LEFT" spacing="5">
+            <CheckBox text="[[TYPE]]分隔线" fx:id="chkSeparator"/>
+        </HBox>
+        <HBox alignment="BASELINE_LEFT" spacing="5">
+            <Label text="[[TYPE]]与内容间隔:"/>
+            <IntegerSpinner prefWidth="80" editable="true" min="0" max="1000" fx:id="spnSpacing"/>
+        </HBox>
+        <HBox alignment="BASELINE_LEFT" spacing="5">
+            <Label text="字体:"/>
+            <TextField prefWidth="120" fx:id="txtFontName"/>
+        </HBox>
+        <HBox alignment="BASELINE_LEFT" spacing="5">
+            <Label text="字体大小:"/>
+            <IntegerSpinner prefWidth="60" editable="true" min="5" max="100" fx:id="spnFontSize"/>
+        </HBox>
+    </VBox>
+</HBox>

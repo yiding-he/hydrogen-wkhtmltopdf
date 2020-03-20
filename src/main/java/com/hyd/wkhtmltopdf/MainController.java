@@ -142,5 +142,6 @@ public class MainController extends MainView {
         pageSizeController.collectOptions(wkHtmlToPdf);
         webContentController.collectOptions(wkHtmlToPdf);
         pdfContentController.collectOptions(wkHtmlToPdf);
+        headerFooterController.collectOptions(wkHtmlToPdf);
     }
 }

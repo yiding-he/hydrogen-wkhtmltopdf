@@ -1,0 +1,15 @@
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.VBox?>
+<ScrollPane fitToWidth="true" style="-fx-padding: 10"
+    xmlns:fx="javafx" fx:controller="com.hyd.wkhtmltopdf.options.HeaderFooterController">
+
+    <VBox spacing="10">
+        <TitledPane VBox.vgrow="ALWAYS" collapsible="false" text="页头">
+            <fx:include source="fragments/header-footer.fxml" fx:id="header"/>
+        </TitledPane>
+        <TitledPane VBox.vgrow="ALWAYS" collapsible="false" text="页脚">
+            <fx:include source="fragments/header-footer.fxml" fx:id="footer"/>
+        </TitledPane>
+    </VBox>
+</ScrollPane>

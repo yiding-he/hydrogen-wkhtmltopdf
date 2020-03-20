@@ -45,7 +45,9 @@
         <Tab text="页面尺寸">
             <fx:include source="options/options-page-size.fxml" fx:id="pageSize"/>
         </Tab>
-        <Tab text="页头页脚"/>
+        <Tab text="页头页脚">
+            <fx:include source="options/options-header-footer.fxml" fx:id="headerFooter"/>
+        </Tab>
         <Tab text="PDF内容选项">
             <fx:include source="options/options-pdf-content.fxml" fx:id="pdfContent"/>
         </Tab>

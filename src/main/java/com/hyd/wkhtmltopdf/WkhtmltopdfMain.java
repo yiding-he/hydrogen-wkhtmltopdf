@@ -27,7 +27,7 @@ public class WkhtmltopdfMain extends Application {
         hostServices = getHostServices();
 
         primaryStage.setTitle("WKHTMLTOPDF");
-        primaryStage.setScene(new Scene(Fxml.load("/main.fxml").getRoot(), 800, 500));
+        primaryStage.setScene(new Scene(Fxml.load("/main.fxml").getRoot(), 850, 650));
         primaryStage.show();
     }
 }
