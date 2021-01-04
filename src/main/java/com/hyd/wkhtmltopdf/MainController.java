@@ -1,16 +1,18 @@
 package com.hyd.wkhtmltopdf;
 
-import static com.hyd.fx.app.AppThread.runUIThread;
-import static com.hyd.fx.dialog.FileDialog.showOpenFile;
-import static com.hyd.wkhtmltopdf.WkhtmltopdfMain.PREFERENCES;
-
 import com.hyd.fx.dialog.AlertDialog;
 import com.hyd.fx.system.ClipboardHelper;
+import com.hyd.fx.utils.Str;
 import com.hyd.wkhtmltopdf.WkHtmlToPdf.Status;
+import javafx.scene.control.Labeled;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import javafx.scene.control.Labeled;
+
+import static com.hyd.fx.app.AppThread.runUIThread;
+import static com.hyd.fx.dialog.FileDialog.showOpenFile;
+import static com.hyd.wkhtmltopdf.WkhtmltopdfApplication.PREFERENCES;
 
 public class MainController extends MainView {
 
@@ -82,6 +84,10 @@ public class MainController extends MainView {
     // 如果输入的是本地文件则默认置输出目录为源文件所在目录；
     // 如果输入的是远程地址则默认置输出目录为当前目录。
     private String generateOutputPath(String htmlPath) {
+        if (Str.isBlank(htmlPath)) {
+            return "";
+        }
+
         String outputDir = "";
 
         try {
@@ -90,7 +96,7 @@ public class MainController extends MainView {
                 new File(new File(url.getFile()).getAbsolutePath()).getParentFile().getAbsolutePath() :
                 new File("").getAbsolutePath();
         } catch (MalformedURLException e) {
-            AlertDialog.error("错误", e);
+
         }
 
         String outputFilename = htmlPath.substring(htmlPath.lastIndexOf("/") + 1) + ".pdf";
@@ -132,7 +138,7 @@ public class MainController extends MainView {
     }
 
     public void execResultLink() {
-        WkhtmltopdfMain.hostServices.showDocument(WkHtmlToPdf.getInstance().getOutputPath());
+        WkhtmltopdfApplication.hostServices.showDocument(WkHtmlToPdf.getInstance().getOutputPath());
     }
 
     //////////////////////////////////////////////////////////////
