@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="lbl_wkhtmltopdf_executable_path">wkhtmltopdf executable:</entry>
+    <entry key="lbl_source_page_url">Source Page URL</entry>
+    <entry key="lbl_source_page_url_desc1">Enter page URL or </entry>
+    <entry key="lbl_source_page_url_desc2">open local file...</entry>
+    <entry key="lbl_output_file_path">Output File Path:</entry>
+    <entry key="tab_authentication">Authentication</entry>
+    <entry key="tab_web_content">Web Content</entry>
+    <entry key="tab_page_size">Page Size</entry>
+    <entry key="tab_page_header_footer">Header &amp; Footer</entry>
+    <entry key="tab_pdf_content">PDF Content</entry>
+    <entry key="btn_start_convert">Convert</entry>
+    <entry key="mnu_copy_command_only">Copy Command Only</entry>
+    <entry key="pmt_log_output">Command Line Output</entry>
+</properties>

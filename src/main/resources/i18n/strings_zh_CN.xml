@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="lbl_wkhtmltopdf_executable_path">wkhtmltopdf 可执行文件:</entry>
+    <entry key="lbl_source_page_url">转换来源页面</entry>
+    <entry key="lbl_source_page_url_desc1">在下面输入网页地址，或 </entry>
+    <entry key="lbl_source_page_url_desc2">打开本地文件...</entry>
+    <entry key="lbl_output_file_path">输出文件路径:</entry>
+    <entry key="tab_authentication">登录认证</entry>
+    <entry key="tab_web_content">网页内容选项</entry>
+    <entry key="tab_page_size">页面尺寸</entry>
+    <entry key="tab_page_header_footer">页头页脚</entry>
+    <entry key="tab_pdf_content">PDF内容选项</entry>
+    <entry key="btn_start_convert">开始转换</entry>
+    <entry key="mnu_copy_command_only">仅复制命令</entry>
+    <entry key="pmt_log_output">命令行输出</entry>
+</properties>

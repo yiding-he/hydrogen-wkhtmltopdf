@@ -21,43 +21,43 @@
     </fx:define>
 
     <HBox spacing="10" alignment="BASELINE_LEFT">
-        <Label text="wkhtmltopdf 可执行文件:"/>
+        <Label text="%lbl_wkhtmltopdf_executable_path"/>
         <TextField HBox.hgrow="ALWAYS" fx:id="txtExecutablePath"/>
         <Button text="..." onAction="#selectExecutablePath"/>
     </HBox>
 
     <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS" style="-fx-border-width: 1;-fx-border-color: #BBBBBB">
-        <Tab text="转换来源页面">
+        <Tab text="%lbl_source_page_url">
             <VBox spacing="10" style="-fx-padding: 10">
                 <HBox alignment="BASELINE_LEFT">
-                    <Label text="在下面输入网页地址，或 "/>
-                    <Hyperlink text="打开本地文件..." onAction="#selectHtmlFile"/>
+                    <Label text="%lbl_source_page_url_desc1"/>
+                    <Hyperlink text="%lbl_source_page_url_desc2" onAction="#selectHtmlFile"/>
                 </HBox>
                 <TextArea VBox.vgrow="ALWAYS" fx:id="txtHtmlLocation" wrapText="true"/>
-                <Label text="输出文件路径："/>
+                <Label text="%lbl_output_file_path"/>
                 <TextField fx:id="txtOutputPath"/>
             </VBox>
         </Tab>
-        <Tab text="登录认证"/>
-        <Tab text="网页内容选项">
+        <Tab text="%tab_authentication"/>
+        <Tab text="%tab_web_content">
             <fx:include source="options/options-web-content.fxml" fx:id="webContent"/>
         </Tab>
-        <Tab text="页面尺寸">
+        <Tab text="%tab_page_size">
             <fx:include source="options/options-page-size.fxml" fx:id="pageSize"/>
         </Tab>
-        <Tab text="页头页脚">
+        <Tab text="%tab_page_header_footer">
             <fx:include source="options/options-header-footer.fxml" fx:id="headerFooter"/>
         </Tab>
-        <Tab text="PDF内容选项">
+        <Tab text="%tab_pdf_content">
             <fx:include source="options/options-pdf-content.fxml" fx:id="pdfContent"/>
         </Tab>
     </TabPane>
 
     <HBox alignment="BASELINE_LEFT">
-        <SplitMenuButton text="开始转换" style="-fx-font-weight: bold;-fx-label-padding: 4 8"
+        <SplitMenuButton text="%btn_start_convert" style="-fx-font-weight: bold;-fx-label-padding: 4 8"
             minWidth="-Infinity" minHeight="-Infinity" fx:id="btnStartConvert" onAction="#startConvert">
             <items>
-                <MenuItem text="仅复制命令" onAction="#copyCommand"
+                <MenuItem text="%mnu_copy_command_only" onAction="#copyCommand"
                     style="-fx-label-padding: 0 30 0 0;-fx-font-weight: normal"/>
             </items>
         </SplitMenuButton>
@@ -65,5 +65,5 @@
         <Label fx:id="lblResultText"/>
         <Hyperlink fx:id="lnkResultAction" onAction="#execResultLink" visible="false"/>
     </HBox>
-    <TextArea prefHeight="120" fx:id="txtLog" editable="false" promptText="日志输出"/>
+    <TextArea prefHeight="120" fx:id="txtLog" editable="false" promptText="%pmt_log_output"/>
 </VBox>
