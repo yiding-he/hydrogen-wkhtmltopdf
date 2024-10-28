@@ -27,3 +27,5 @@ only English and Chinese are supported.
 
 ![](images/1.png)
 
+![](images/2.png)
+
