@@ -1,55 +1,51 @@
 <?import com.hyd.fx.components.DoubleSpinner?>
 <?import com.hyd.fx.components.IntegerSpinner?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <HBox spacing="10" style="-fx-padding: 10"
-    xmlns:fx="javafx" fx:controller="com.hyd.wkhtmltopdf.options.WebContentController">
+      xmlns:fx="javafx" fx:controller="com.hyd.wkhtmltopdf.options.WebContentController">
     <VBox spacing="10" HBox.hgrow="ALWAYS" style="-fx-padding: 5">
         <HBox spacing="10" alignment="BASELINE_LEFT">
-            <CheckBox fx:id="chkEnableBackground" text="启用背景图片"/>
+            <CheckBox fx:id="chkEnableBackground" text="%chk_enable_bg_img"/>
         </HBox>
         <HBox spacing="10" alignment="BASELINE_LEFT">
-            <CheckBox fx:id="chkEnableImages" text="启用内容图片"/>
+            <CheckBox fx:id="chkEnableImages" text="%chk_enable_img"/>
         </HBox>
         <HBox spacing="10" alignment="BASELINE_LEFT">
-            <CheckBox fx:id="chkEnableExternalLink" text="启用页面外链接"/>
+            <CheckBox fx:id="chkEnableExternalLink" text="%chk_enable_external_link"/>
         </HBox>
         <HBox spacing="10" alignment="BASELINE_LEFT">
-            <CheckBox fx:id="chkEnableInternalLink" text="启用页面内链接"/>
+            <CheckBox fx:id="chkEnableInternalLink" text="%chk_enable_internal_link"/>
         </HBox>
         <HBox spacing="10" alignment="BASELINE_LEFT">
-            <CheckBox fx:id="chkEnableForms" text="将表单转为 PDF 表单"/>
+            <CheckBox fx:id="chkEnableForms" text="%chk_enable_forms"/>
         </HBox>
         <HBox spacing="10" alignment="BASELINE_LEFT">
-            <CheckBox fx:id="chkUseXserver" text="使用 Xserver 渲染（Linux）"/>
+            <CheckBox fx:id="chkUseXserver" text="%chk_use_x_server"/>
         </HBox>
         <HBox spacing="10" alignment="BASELINE_LEFT">
-            <CheckBox fx:id="chkEnableJavaScript" text="渲染页面时启用 JavaScript"/>
+            <CheckBox fx:id="chkEnableJavaScript" text="%chk_enable_js"/>
         </HBox>
         <HBox spacing="10" alignment="BASELINE_LEFT">
-            <CheckBox fx:id="chkUsePrintMediaType" text="渲染媒体类型（media-type）为 print"/>
+            <CheckBox fx:id="chkUsePrintMediaType" text="%chk_use_print_media_type"/>
         </HBox>
     </VBox>
     <Separator orientation="VERTICAL"/>
     <VBox spacing="10" HBox.hgrow="ALWAYS">
         <HBox spacing="10" alignment="BASELINE_LEFT">
-            <Label text="页面编码:"/>
-            <TextField promptText="自动检测" prefWidth="80" fx:id="txtWebPageEncoding"/>
+            <Label text="%lbl_page_encoding"/>
+            <TextField promptText="%pmt_page_encoding" prefWidth="80" fx:id="txtWebPageEncoding"/>
         </HBox>
         <HBox spacing="10" alignment="BASELINE_LEFT">
-            <Label text="执行 JavaScript 等待时长（毫秒）:"/>
+            <Label text="%lbl_js_execution_time"/>
             <IntegerSpinner prefWidth="80" editable="true" fx:id="spnScriptDelayMillis" min="200" max="3600000"/>
         </HBox>
         <HBox spacing="10" alignment="BASELINE_LEFT">
-            <Label text="最小字体大小:"/>
+            <Label text="%lbl_min_font_size"/>
             <IntegerSpinner prefWidth="80" editable="true" fx:id="spnMinFontSize" min="5" max="100"/>
         </HBox>
         <HBox spacing="10" alignment="BASELINE_LEFT">
-            <Label text="页面缩放（%）:"/>
+            <Label text="%lbl_page_zoom_pct"/>
             <DoubleSpinner prefWidth="80" editable="true" fx:id="spnZoomPercent" min="1" max="1000"/>
         </HBox>
     </VBox>

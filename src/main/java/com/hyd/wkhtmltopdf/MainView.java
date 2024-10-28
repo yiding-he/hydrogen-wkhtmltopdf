@@ -1,15 +1,8 @@
 package com.hyd.wkhtmltopdf;
 
-import com.hyd.wkhtmltopdf.options.HeaderFooterController;
-import com.hyd.wkhtmltopdf.options.PageSizeController;
-import com.hyd.wkhtmltopdf.options.PdfContentController;
-import com.hyd.wkhtmltopdf.options.WebContentController;
+import com.hyd.wkhtmltopdf.options.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.SplitMenuButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public abstract class MainView {
 
@@ -33,6 +26,9 @@ public abstract class MainView {
 
     @FXML
     protected Hyperlink lnkResultAction;
+
+    @FXML
+    protected AuthenticationController authenticationController;
 
     @FXML
     protected PageSizeController pageSizeController;

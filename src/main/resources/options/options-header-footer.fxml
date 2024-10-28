@@ -3,16 +3,15 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.VBox?>
 <ScrollPane fitToWidth="true" style="-fx-padding: 10"
-    xmlns:fx="javafx" fx:controller="com.hyd.wkhtmltopdf.options.HeaderFooterController">
+            xmlns:fx="javafx" fx:controller="com.hyd.wkhtmltopdf.options.HeaderFooterController">
 
     <VBox spacing="10">
-        <Label style="-fx-text-fill: #3366AA" wrapText="true"
-            text="文本内容中可以用 [page] 表示当前页号，[topage] 表示总页数。"/>
+        <Label style="-fx-text-fill: #3366AA" wrapText="true" text="%lbl_header_footer_desc"/>
 
-        <TitledPane VBox.vgrow="ALWAYS" collapsible="false" text="页头">
+        <TitledPane VBox.vgrow="ALWAYS" collapsible="false" text="%lbl_header">
             <fx:include source="fragments/header-footer.fxml" fx:id="header"/>
         </TitledPane>
-        <TitledPane VBox.vgrow="ALWAYS" collapsible="false" text="页脚">
+        <TitledPane VBox.vgrow="ALWAYS" collapsible="false" text="%lbl_footer">
             <fx:include source="fragments/header-footer.fxml" fx:id="footer"/>
         </TitledPane>
     </VBox>

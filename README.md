@@ -13,7 +13,7 @@ so if you want to build this please clone hydrogen-fx first and run `mvn install
 Package with `mvn package` will get 2 packaged files: `hydrogen-wkhtmltopdf.jar` 
 and `hydrogen-wkhtmltopdf-jar-with-dependencies.jar`.
 The latter one is a fat jar that contains all dependencies, 
-so it can be run using `java -jar hydrogen-wkhtmltopdf-jar-with-dependencies`.
+so it can be run using `java -jar hydrogen-wkhtmltopdf-jar-with-dependencies.jar`.
 
 ### Switch Language:
 

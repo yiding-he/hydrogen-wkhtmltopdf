@@ -1,29 +1,21 @@
 <?import com.hyd.fx.components.IntegerSpinner?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <HBox spacing="10" fx:id="root"
-    xmlns:fx="javafx" fx:controller="com.hyd.wkhtmltopdf.options.fragments.HeaderFooterFragmentController">
+      xmlns:fx="javafx" fx:controller="com.hyd.wkhtmltopdf.options.fragments.HeaderFooterFragmentController">
     <TabPane HBox.hgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE" fx:id="tpContent">
-        <Tab text="文本">
+        <Tab text="%lbl_text">
             <VBox spacing="10" style="-fx-padding: 10 0 0 0">
                 <HBox alignment="BASELINE_LEFT" spacing="10">
-                    <Label text="左："/>
+                    <Label text="%lbl_text_align_left"/>
                     <TextField HBox.hgrow="ALWAYS" fx:id="txtContentLeft"/>
                 </HBox>
                 <HBox alignment="BASELINE_LEFT" spacing="10">
-                    <Label text="中："/>
+                    <Label text="%lbl_text_align_center"/>
                     <TextField HBox.hgrow="ALWAYS" fx:id="txtContentCenter"/>
                 </HBox>
                 <HBox alignment="BASELINE_LEFT" spacing="10">
-                    <Label text="右："/>
+                    <Label text="%lbl_text_align_right"/>
                     <TextField HBox.hgrow="ALWAYS" fx:id="txtContentRight"/>
                 </HBox>
             </VBox>
@@ -39,18 +31,18 @@
     <Separator orientation="VERTICAL"/>
     <VBox spacing="10" minWidth="200">
         <HBox alignment="BASELINE_LEFT" spacing="5">
-            <CheckBox text="[[TYPE]]分隔线" fx:id="chkSeparator"/>
+            <CheckBox text="%chk_header_footer_separator" fx:id="chkSeparator"/>
         </HBox>
         <HBox alignment="BASELINE_LEFT" spacing="5">
-            <Label text="[[TYPE]]与内容间隔(mm):"/>
+            <Label text="%lbl_header_footer_gap"/>
             <IntegerSpinner prefWidth="80" editable="true" min="0" max="1000" fx:id="spnSpacing"/>
         </HBox>
         <HBox alignment="BASELINE_LEFT" spacing="5">
-            <Label text="字体:"/>
+            <Label text="%lbl_header_footer_font"/>
             <TextField prefWidth="120" fx:id="txtFontName"/>
         </HBox>
         <HBox alignment="BASELINE_LEFT" spacing="5">
-            <Label text="字体大小:"/>
+            <Label text="%lbl_header_footer_font_size"/>
             <IntegerSpinner prefWidth="60" editable="true" min="5" max="100" fx:id="spnFontSize"/>
         </HBox>
     </VBox>

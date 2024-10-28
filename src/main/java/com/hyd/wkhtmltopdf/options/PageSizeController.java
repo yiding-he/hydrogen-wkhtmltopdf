@@ -1,18 +1,16 @@
 package com.hyd.wkhtmltopdf.options;
 
-import static com.hyd.wkhtmltopdf.WkHtmlToPdf.setOptionIfNotBlank;
-
+import com.hyd.wkhtmltopdf.FxUtil;
 import com.hyd.wkhtmltopdf.PageSizeType;
 import com.hyd.wkhtmltopdf.WkHtmlToPdf;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+
 import java.util.HashMap;
 import java.util.Map;
-import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.HBox;
+
+import static com.hyd.wkhtmltopdf.WkHtmlToPdf.setOptionIfNotBlank;
 
 public class PageSizeController {
 
@@ -29,6 +27,9 @@ public class PageSizeController {
         PAPER_SIZE_MAP.put("B5", new int[]{176, 250});
         PAPER_SIZE_MAP.put("B6", new int[]{125, 176});
     }
+
+    @FXML
+    protected TextField txtStartPageNumber;
 
     @FXML
     protected ToggleGroup tgPageSizeType;
@@ -77,6 +78,8 @@ public class PageSizeController {
 
         this.tgPageSizeType.selectToggle(this.tgPageSizeTypePredefined);
         this.cmbPageSize.setValue("A4");
+
+        FxUtil.replaceResourceString(this.cmbPageOrientation);
         this.cmbPageOrientation.getSelectionModel().select(0);
     }
 
@@ -114,6 +117,11 @@ public class PageSizeController {
 
         if (this.cmbPageOrientation.getSelectionModel().getSelectedIndex() != 0) {
             setOptionIfNotBlank(wkHtmlToPdf, "orientation", "Landscape");
+        }
+
+        var startPageNumber = this.txtStartPageNumber.getText();
+        if (!startPageNumber.isEmpty() && startPageNumber.matches("\\d+")) {
+            setOptionIfNotBlank(wkHtmlToPdf, "page-offset", startPageNumber);
         }
     }
 }

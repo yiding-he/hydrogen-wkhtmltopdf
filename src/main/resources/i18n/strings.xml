@@ -8,10 +8,65 @@
     <entry key="lbl_output_file_path">Output File Path:</entry>
     <entry key="tab_authentication">Authentication</entry>
     <entry key="tab_web_content">Web Content</entry>
-    <entry key="tab_page_size">Page Size</entry>
+    <entry key="tab_page_size">Paging &amp; Size</entry>
     <entry key="tab_page_header_footer">Header &amp; Footer</entry>
     <entry key="tab_pdf_content">PDF Content</entry>
     <entry key="btn_start_convert">Convert</entry>
     <entry key="mnu_copy_command_only">Copy Command Only</entry>
     <entry key="pmt_log_output">Command Line Output</entry>
+
+    <entry key="chk_enable_bg_img">Enable Background Images</entry>
+    <entry key="chk_enable_img">Enable Content Images</entry>
+    <entry key="chk_enable_external_link">Enable External Links</entry>
+    <entry key="chk_enable_internal_link">Enable Internal Links</entry>
+    <entry key="chk_enable_forms">Enable Forms</entry>
+    <entry key="chk_use_x_server">Use Xserver (Linux)</entry>
+    <entry key="chk_enable_js">Enable JavaScript</entry>
+    <entry key="chk_use_print_media_type">Use 'print' as media-type</entry>
+
+    <entry key="lbl_page_encoding">Page Encoding:</entry>
+    <entry key="pmt_page_encoding">auto</entry>
+    <entry key="lbl_js_execution_time">JavaScript Execution Timeout(ms):</entry>
+    <entry key="lbl_min_font_size">Minimal Font Size:</entry>
+    <entry key="lbl_page_zoom_pct">Page Zoom (%):</entry>
+
+    <entry key="lbl_title">Title:</entry>
+    <entry key="pmt_title">auto</entry>
+    <entry key="lbl_img_dpi">Image DPI:</entry>
+    <entry key="lbl_img_quality">Image Quality:</entry>
+    <entry key="chk_low_quality">Low Quality</entry>
+    <entry key="chk_grayscale">Grayscale</entry>
+
+    <entry key="lbl_start_page_number">Start Page Number:</entry>
+    <entry key="btn_standard_page_size">Standard Size</entry>
+    <entry key="btn_custom_page_size">Custom Size</entry>
+    <entry key="lbl_page_width">Width:</entry>
+    <entry key="lbl_page_height">Height:</entry>
+    <entry key="lbl_page_margin">Margin:</entry>
+    <entry key="lbl_page_margin_top">Top</entry>
+    <entry key="lbl_page_margin_bottom">Bottom</entry>
+    <entry key="lbl_page_margin_left">Left</entry>
+    <entry key="lbl_page_margin_right">Right</entry>
+    <entry key="lbl_page_direction">Page Orientation:</entry>
+    <entry key="val_page_portrait">Portrait</entry>
+    <entry key="val_page_landscape">Landscape</entry>
+
+    <entry key="lbl_header_footer_desc">In the text content, use [page] as the current page number, and [topage] as the total number of pages.</entry>
+    <entry key="lbl_header">Header</entry>
+    <entry key="lbl_footer">Footer</entry>
+
+    <entry key="lbl_text">Text</entry>
+    <entry key="lbl_text_align_left"  >Left:</entry>
+    <entry key="lbl_text_align_center">Center:</entry>
+    <entry key="lbl_text_align_right" >Right:</entry>
+    <entry key="chk_header_footer_separator">Separator Line</entry>
+    <entry key="lbl_header_footer_gap">Gap(mm):</entry>
+    <entry key="lbl_header_footer_font">Font:</entry>
+    <entry key="lbl_header_footer_font_size">Size:</entry>
+
+    <entry key="lbl_auth_username">Username:</entry>
+    <entry key="lbl_auth_password">Password:</entry>
+
+    <entry key="msg_convert_success">Command Finished.</entry>
+    <entry key="msg_convert_success_open">Open it</entry>
 </properties>

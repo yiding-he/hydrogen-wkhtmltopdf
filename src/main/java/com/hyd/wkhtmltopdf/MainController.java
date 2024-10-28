@@ -12,12 +12,13 @@ import java.net.URL;
 
 import static com.hyd.fx.app.AppThread.runUIThread;
 import static com.hyd.fx.dialog.FileDialog.showOpenFile;
+import static com.hyd.wkhtmltopdf.WkhtmltopdfApplication.I18N;
 import static com.hyd.wkhtmltopdf.WkhtmltopdfApplication.PREFERENCES;
 
 public class MainController extends MainView {
 
     public void initialize() {
-        final WkHtmlToPdf wkHtmlToPdf = WkHtmlToPdf.getInstance();
+        final var wkHtmlToPdf = WkHtmlToPdf.getInstance();
 
         this.txtExecutablePath.textProperty().bindBidirectional(wkHtmlToPdf.executablePathProperty());
         this.txtHtmlLocation.textProperty().bindBidirectional(wkHtmlToPdf.htmlPathProperty());
@@ -62,8 +63,8 @@ public class MainController extends MainView {
                 this.txtLog.setText("");
             } else if (status == Status.Succes) {
                 this.btnStartConvert.setDisable(false);
-                this.setText(this.lblResultText, "文件生成完毕。");
-                this.setText(this.lnkResultAction, "打开");
+                this.setText(this.lblResultText, I18N.getString("msg_convert_success"));
+                this.setText(this.lnkResultAction, I18N.getString("msg_convert_success_open"));
             } else if (status == Status.Fail) {
                 this.btnStartConvert.setDisable(false);
             }
@@ -88,10 +89,10 @@ public class MainController extends MainView {
             return "";
         }
 
-        String outputDir = "";
+        var outputDir = "";
 
         try {
-            URL url = new URL(htmlPath);
+            var url = new URL(htmlPath);
             outputDir = htmlPath.startsWith("file:") ?
                 new File(new File(url.getFile()).getAbsolutePath()).getParentFile().getAbsolutePath() :
                 new File("").getAbsolutePath();
@@ -99,15 +100,20 @@ public class MainController extends MainView {
 
         }
 
-        String outputFilename = htmlPath.substring(htmlPath.lastIndexOf("/") + 1) + ".pdf";
+        var fileBaseName = htmlPath.substring(htmlPath.lastIndexOf("/") + 1);
+        if (fileBaseName.isEmpty()) {
+            fileBaseName = "output";
+        }
+
+        var outputFilename = fileBaseName + ".pdf";
         return outputDir + File.separator + outputFilename;
     }
 
     // 选择 wkhtmltopdf 可执行文件路径
     public void selectExecutablePath() {
-        final File file = showOpenFile(null, "选择 wkhtmltopdf.exe", "*.exe", "wkhtmltopdf.exe");
+        final var file = showOpenFile(null, "选择 wkhtmltopdf.exe", "*.exe", "wkhtmltopdf.exe");
         if (file != null) {
-            final String executablePath = file.getAbsolutePath();
+            final var executablePath = file.getAbsolutePath();
             txtExecutablePath.setText(executablePath);
             PREFERENCES.put(PrefKeys.ExecutablePath.name(), executablePath);
         }
@@ -116,7 +122,7 @@ public class MainController extends MainView {
     // 选择源文件本地路径
     public void selectHtmlFile() {
         try {
-            final File file = showOpenFile(null, "选择 HTML 文件", "*.html", "HTML 文件");
+            final var file = showOpenFile(null, "选择 HTML 文件", "*.html", "HTML 文件");
             if (file != null) {
                 txtHtmlLocation.setText(file.toURI().toURL().toExternalForm());
             }
@@ -132,7 +138,7 @@ public class MainController extends MainView {
 
     public void copyCommand() {
         collectOptions();
-        String commandText = String.join(" ", WkHtmlToPdf.getInstance().buildCommand());
+        var commandText = String.join(" ", WkHtmlToPdf.getInstance().buildCommand());
         ClipboardHelper.putString(commandText);
         AlertDialog.info("复制命令", "命令已复制到剪切板。");
     }
@@ -144,7 +150,8 @@ public class MainController extends MainView {
     //////////////////////////////////////////////////////////////
 
     private void collectOptions() {
-        final WkHtmlToPdf wkHtmlToPdf = WkHtmlToPdf.getInstance();
+        final var wkHtmlToPdf = WkHtmlToPdf.getInstance();
+        authenticationController.collectOptions(wkHtmlToPdf);
         pageSizeController.collectOptions(wkHtmlToPdf);
         webContentController.collectOptions(wkHtmlToPdf);
         pdfContentController.collectOptions(wkHtmlToPdf);

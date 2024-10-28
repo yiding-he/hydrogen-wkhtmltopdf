@@ -1,33 +1,30 @@
 <?import com.hyd.fx.components.IntegerSpinner?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <VBox xmlns:fx="javafx" spacing="10" style="-fx-padding: 10"
-    fx:controller="com.hyd.wkhtmltopdf.options.PdfContentController">
+      fx:controller="com.hyd.wkhtmltopdf.options.PdfContentController">
 
     <HBox spacing="10" alignment="BASELINE_LEFT">
-        <Label text="文档标题:"/>
-        <TextField prefWidth="300" promptText="自动获取" fx:id="txtPdfTitle"/>
+        <Label text="%lbl_title"/>
+        <TextField prefWidth="300" promptText="%pmt_title" fx:id="txtPdfTitle"/>
     </HBox>
     <HBox spacing="10" alignment="BASELINE_LEFT">
         <Label text="DPI:"/>
         <IntegerSpinner prefWidth="80" editable="true" fx:id="spnDpi" min="10" max="5000"/>
     </HBox>
     <HBox spacing="10" alignment="BASELINE_LEFT">
-        <Label text="图片 DPI:"/>
+        <Label text="%lbl_img_dpi"/>
         <IntegerSpinner prefWidth="80" editable="true" fx:id="spnImageDpi" min="10" max="5000"/>
     </HBox>
     <HBox spacing="10" alignment="BASELINE_LEFT">
-        <Label text="图片质量:"/>
+        <Label text="%lbl_img_quality"/>
         <IntegerSpinner prefWidth="80" editable="true" fx:id="spnImageQuality" min="10" max="100"/>
     </HBox>
     <HBox spacing="10" alignment="BASELINE_LEFT">
-        <CheckBox fx:id="chkLowQuality" text="低文档质量"/>
+        <CheckBox fx:id="chkLowQuality" text="%chk_low_quality"/>
     </HBox>
     <HBox spacing="10" alignment="BASELINE_LEFT">
-        <CheckBox fx:id="chkGrayscale" text="灰度"/>
+        <CheckBox fx:id="chkGrayscale" text="%chk_grayscale"/>
     </HBox>
 
 </VBox>

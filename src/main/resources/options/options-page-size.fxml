@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.Integer?>
-<?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
 <VBox xmlns:fx="javafx" spacing="10" style="-fx-padding: 10"
-    fx:controller="com.hyd.wkhtmltopdf.options.PageSizeController">
+      fx:controller="com.hyd.wkhtmltopdf.options.PageSizeController">
 
     <fx:define>
         <java.lang.Integer fx:id="numTextWidth" fx:value="60"/>
@@ -19,7 +13,12 @@
     </fx:define>
 
     <HBox alignment="BASELINE_LEFT" spacing="10">
-        <RadioButton text="标准尺寸" fx:id="tgPageSizeTypePredefined" toggleGroup="$tgPageSizeType">
+        <Label text="%lbl_start_page_number"/>
+        <TextField prefWidth="$numTextWidth" fx:id="txtStartPageNumber" promptText="0"/>
+    </HBox>
+    <HBox prefHeight="1"/>
+    <HBox alignment="BASELINE_LEFT" spacing="10">
+        <RadioButton text="%btn_standard_page_size" fx:id="tgPageSizeTypePredefined" toggleGroup="$tgPageSizeType">
             <properties pageSizeType="predefined"/>
         </RadioButton>
         <HBox alignment="BASELINE_LEFT" fx:id="hbPageSizeTypePredefined">
@@ -41,45 +40,45 @@
         </HBox>
     </HBox>
     <HBox alignment="BASELINE_LEFT" spacing="10">
-        <RadioButton text="自定尺寸" toggleGroup="$tgPageSizeType">
+        <RadioButton text="%btn_custom_page_size" toggleGroup="$tgPageSizeType">
             <properties pageSizeType="customized"/>
         </RadioButton>
         <HBox alignment="BASELINE_LEFT" spacing="10" fx:id="hbPageSizeTypeCustomized">
             <HBox alignment="BASELINE_LEFT" spacing="5">
-                <Label text="宽度:"/>
+                <Label text="%lbl_page_width"/>
                 <TextField prefWidth="$numTextWidth" fx:id="txtCustomPaperWidth"/>
             </HBox>
             <HBox alignment="BASELINE_LEFT" spacing="5">
-                <Label text="高度:"/>
+                <Label text="%lbl_page_height"/>
                 <TextField prefWidth="$numTextWidth" fx:id="txtCustomPaperHeight"/>
             </HBox>
-            <Label text="页边距："/>
+            <Label text="%lbl_page_margin"/>
             <HBox alignment="BASELINE_LEFT" spacing="5">
-                <Label text="上"/>
+                <Label text="%lbl_page_margin_top"/>
                 <TextField prefWidth="$numTextWidth" fx:id="txtCustomMarginTop"/>
             </HBox>
             <HBox alignment="BASELINE_LEFT" spacing="5">
-                <Label text="下"/>
+                <Label text="%lbl_page_margin_bottom"/>
                 <TextField prefWidth="$numTextWidth" fx:id="txtCustomMarginBottom"/>
             </HBox>
             <HBox alignment="BASELINE_LEFT" spacing="5">
-                <Label text="左"/>
+                <Label text="%lbl_page_margin_left"/>
                 <TextField prefWidth="$numTextWidth" fx:id="txtCustomMarginLeft"/>
             </HBox>
             <HBox alignment="BASELINE_LEFT" spacing="5">
-                <Label text="右"/>
+                <Label text="%lbl_page_margin_right"/>
                 <TextField prefWidth="$numTextWidth" fx:id="txtCustomMarginRight"/>
             </HBox>
         </HBox>
     </HBox>
     <HBox prefHeight="1"/>
     <HBox alignment="BASELINE_LEFT" spacing="10">
-        <Label text="页面方向:"/>
+        <Label text="%lbl_page_direction"/>
         <ComboBox fx:id="cmbPageOrientation" prefWidth="150">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="垂直"/>
-                    <String fx:value="水平"/>
+                    <String fx:value="%val_page_portrait"/>
+                    <String fx:value="%val_page_landscape"/>
                 </FXCollections>
             </items>
         </ComboBox>
